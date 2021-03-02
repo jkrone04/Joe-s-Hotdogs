@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<link rel="stylesheet" href="joesstyles.css">
+
+<head>
+	<meta charset="utf-8">
+	<title>Joe's Hotdogs</title>
+</head>
+
+<body>
+	<script language="javascript">
+		num_hotdogs = parseInt(prompt("Welcome to Joe's Hotdog Stand! How many hotdogs do you want?"));
+		num_fries = parseInt(prompt("How many fries would you like?"));
+		num_sodas = parseInt(prompt("How many sodas do you want?"));
+
+		subtotal = num_hotdogs*3.25 + num_fries*2 + num_sodas*1.5;
+
+		discount = 0;
+		if(subtotal >= 20)
+			discount = subtotal*0.1;
+
+		total = subtotal - discount;
+
+		tax = total*0.0625;
+		total = total + tax;
+
+		document.write('<p id="header">' + "Thanks for ordering from Joe's Hotdog Stand!" + '</p>');
+		document.write('<p id="quantities">' + "You ordered:<br>" + num_hotdogs + " hotdogs,<br>" + num_fries + " fries,<br>and " + num_sodas + " sodas.<br>" + '</p>');
+		document.write('<p id="pricing">' + "Your subtotal is $" + (Math.round(subtotal * 100) / 100).toFixed(2) + ".<br>" + '</p>');
+		if(discount > 0)
+			document.write('<p id="pricing">' + "Since your order was above $20, you received a discount of $" + (Math.round(discount * 100) / 100).toFixed(2) + ".<br>" + '</p>');
+		document.write('<p id="pricing">' + "Taxes amounted to $" + (Math.round(tax * 100) / 100).toFixed(2) + ".<br>" + '</p>');
+		document.write('<p id="pricing">' + "Your total is $" + (Math.round(total * 100) / 100).toFixed(2) + ".<br>" + '</p>');
+		document.write('<p id="pricing">' + "Have a great day!" + '</p>');
+
+	</script>
+</body>
+</html>
